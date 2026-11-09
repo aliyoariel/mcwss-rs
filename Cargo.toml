@@ -1,0 +1,39 @@
+[package]
+name = "mcwss"
+version = "2.1.3"
+edition = "2021"
+description = "Minecraft Bedrock Edition websocket server framework for Rust"
+license = "GPL-3.0-only"
+authors = ["Hotaru <biyuehuya@gmail.com>"]
+repository = "https://github.com/aliyoariel/mcwss-rs"
+homepage = "https://github.com/aliyoariel/mcwss-rs"
+readme = "README.md"
+keywords = ["minecraft", "bedrock", "websocket", "server", "framework"]
+categories = ["network-programming", "game-development"]
+
+[lib]
+name = "mcwss"
+path = "src/lib.rs"
+
+[[bin]]
+name = "mcwss"
+path = "src/main.rs"
+
+[dependencies]
+chrono = "0.4"
+clap = { version = "4", features = ["derive"] }
+futures-util = { version = "0.3", default-features = false, features = ["sink", "std"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = [
+    "rt-multi-thread",
+    "macros",
+    "net",
+    "sync",
+    "time",
+    "io-std",
+    "io-util",
+    "signal",
+] }
+tokio-tungstenite = "0.26"
+uuid = { version = "1", features = ["v4"] }
